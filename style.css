@@ -65,6 +65,7 @@ body {
     margin: 20px 0;
     border-radius: 5px;
     background-color: #fafafa;
+    text-align: justify;
 }
 
 .cientific-article h3 {
@@ -198,4 +199,33 @@ footer {
     .publications-grid {
         grid-template-columns: 1fr; /* Força 1 coluna em mobile para melhor leitura */
     }
+}
+
+.aviso-gemini {
+    max-width: 800px;
+    margin: 40px auto; /* Centraliza na página */
+    padding: 20px;
+    background-color: #FFFDE7; /* Amarelo muito claro para aviso */
+    border-left: 5px solid #FFC107; /* Borda amarela de destaque */
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #424242;
+}
+        
+.aviso-gemini h1 {
+    font-size: 1.4em; /* Tamanho da fonte menor para avisos */
+    margin: 0;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.aviso-gemini span.emoji {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.highlight {
+    color: #1565C0; /* Azul escuro para destacar o Gemini */
+    font-weight: bolder;
 }
