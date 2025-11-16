@@ -1,0 +1,201 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Fundo claro */
+    color: #333;
+    line-height: 1.6;
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "main sidebar"
+        "footer footer";
+    grid-template-columns: 3fr 1fr; /* Coluna principal maior que a lateral */
+    min-height: 100vh;
+}
+
+/* 1. CABEÇALHO DA LOGO */
+.logo-header {
+    grid-area: header;
+    background-color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.university-logo {
+    width: 400px; /* Tamanho padrão */
+    height: 144px; /* Tamanho padrão */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 2. CONTEÚDO PRINCIPAL */
+.container {
+    grid-area: main;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.container h1 {
+    color: #1e88e5; /* Azul primário */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.content-section {
+    margin-top: 30px;
+}
+
+.content-section h2 {
+    color: #004d99; /* Azul mais escuro */
+    margin-bottom: 15px;
+}
+
+.cientific-article {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.cientific-article h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* NOVO: Estilos para Publicações Recentes */
+.recent-publications h2 {
+    color: #1e88e5;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.publications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 a 3 colunas, ajusta para mobile */
+    gap: 20px; /* Espaçamento entre as publicações */
+}
+
+.publication-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem arredondada não vaze */
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.publication-item:hover {
+    transform: translateY(-5px); /* Efeito ao passar o mouse */
+}
+
+.publication-item img {
+    width: 100%; /* Imagem sempre ocupa 100% da largura do contêiner */
+    height: 200px; /* Altura fixa para uniformizar (ajuste conforme preferir) */
+    object-fit: cover; /* Corta a imagem para preencher o espaço, sem distorcer */
+    display: block;
+}
+
+.publication-item h3 {
+    padding: 15px 15px 5px;
+    color: #004d99;
+    font-size: 1.1em;
+}
+
+.publication-item p {
+    padding: 0 15px 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.publication-item a {
+    display: block;
+    text-align: right;
+    padding: 0 15px 15px;
+    color: #1e88e5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.publication-item a:hover {
+    text-decoration: underline;
+}
+
+/* 3. BARRA LATERAL (LINKS E QR CODE) */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e3f2fd; /* Azul bem clarinho */
+    padding: 30px;
+    border-left: 1px solid #ccc;
+}
+
+.sidebar h2 {
+    color: #1e88e5;
+    margin-bottom: 15px;
+}
+
+.links-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #004d99;
+    padding: 8px 0;
+    font-weight: bold;
+    border-bottom: 1px dashed #c0d9e8;
+}
+
+.sidebar-link:hover {
+    color: #1e88e5;
+}
+
+.qr-code {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+    border: 5px solid #fff;
+}
+
+/* 4. RODAPÉ */
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/* AJUSTES PARA TELAS MENORES (Responsividade) */
+@media (max-width: 768px) {
+    body {
+        grid-template-areas: 
+            "header header"
+            "sidebar sidebar" /* Sidebar antes do conteúdo principal para mobile */
+            "main main"
+            "footer footer";
+        grid-template-columns: 1fr;
+    }
+    .university-logo {
+        width: 100%; /* Logo ocupa toda a largura em telas menores */
+        height: auto;
+        max-width: 300px; /* Limita o tamanho máximo mesmo em 100% */
+    }
+    /* Em mobile, as publicações já se ajustarão automaticamente para 1 coluna */
+    .publications-grid {
+        grid-template-columns: 1fr; /* Força 1 coluna em mobile para melhor leitura */
+    }
+}
